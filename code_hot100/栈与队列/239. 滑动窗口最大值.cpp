@@ -65,51 +65,21 @@ public:
 
 void test()
 {
-
+    vector<int> nums={1,3,-1,-3,5,3,6,7};
+    int k=3;
+    Solution s;
+    vector<int> res=s.maxSlidingwindow(nums,k);
+    for(int i=0;i<res.size();i++)
+    {
+        cout<<res[i]<<" ";
+    }
 }
 
 int main()
 {
-
+    test();
+    return 0;   
 
 }
 
 
-class Solution
-{
-private:
-    deque<int> deque1;
-
-    void push(int value)
-    {
-        while(!deque1.empty()&&value>deque1.back())
-        {
-            deque1.pop_back();
-        }
-        deque1.push_back(value);
-    }
-
-     void pop(int value)
-    {
-        if(!deque1.empty()&&value==deque1.front())
-        {
-            deque1.pop_front();
-        }
-    }
-
-    int front()
-    {
-        return deque1.front();
-    }
-
-public:
-    vector<int> maxSlidingwindow(vector<int>&nums,int k)
-    {   
-        vector<int> res;
-        for(int i=0;i<k;i++)
-        {
-            deque1.push(nums[i]);
-        }
-        res.push_back(front());
-    }
-};
